@@ -1,0 +1,28 @@
+/* -----------------------
+Base styles
+------------------------*/
+
+body
+{
+	margin: 0;
+	padding: 0;
+	color: #333;
+	background-color: #eee;
+	font: 1em/1.2 "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+}
+
+.container
+{
+	max-width: 50em;
+	margin: 0 auto;
+}
+
+.header
+{
+	color: #fff;
+	background: #555;
+	padding: 1em 1.25em;
+}
+
+
+}
