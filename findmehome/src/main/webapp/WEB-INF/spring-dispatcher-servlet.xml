@@ -7,6 +7,8 @@
    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
    <context:component-scan base-package = "spring.request.controllers" />
+   <context:component-scan base-package = "data.access.obj.models" />
+   <context:component-scan base-package = "spring.business.model.frames" />
 
    <bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
       <property name = "prefix" value = "/WEB-INF/jsp/" />
@@ -14,9 +16,9 @@
    </bean>
    
    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/TestDB" />
-		<property name="username" value="password" />
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/findmyhome" />
+		<property name="username" value="root" />
 		<property name="password" value="password" />
 		<property name="maxTotal" value="10" />
 		<property name="maxIdle" value="8" />
@@ -35,9 +37,7 @@
      </property>
         <property name="annotatedClasses">
       <list>
-        <value>com.vanilla.objects.Student</value>
-        <value>com.vanilla.objects.Address</value>
-
+        <value>spring.business.model.frames.User</value>
          </list>
     </property>
   </bean>
