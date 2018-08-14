@@ -1,6 +1,7 @@
 package spring.request.controllers;
 
 import javax.transaction.SystemException;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -29,11 +30,12 @@ public ModelAndView signup() {
 return new ModelAndView("signup");	
 }
 
-@RequestMapping(value = "signup/registration", method = RequestMethod.POST )	
-public ModelAndView signupFromSubmit(@ModelAttribute("user") User user, BindingResult result) {
+@RequestMapping(value = "/registration", method = RequestMethod.POST )	
+public ModelAndView signupFromSubmit(@Valid @ModelAttribute("user") User user, BindingResult result) {
 //public ModelAndView signupFromSubmit(@RequestParam Map<String,String> binder) {
 	
 	if(result.hasErrors()) {
+		System.out.println("result ----- "+result.getFieldError());
 		ModelAndView model = new ModelAndView("signup");
 		return model;
 	}
@@ -54,7 +56,7 @@ public ModelAndView signupFromSubmit(@ModelAttribute("user") User user, BindingR
 	System.out.println("in controller");
 	
 	
-return new ModelAndView("index");	
+return new ModelAndView("comfirmationPostReg");	
 }
 
 public UserCRUD getUserDao() {
