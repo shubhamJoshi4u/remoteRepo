@@ -25,9 +25,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
-		http.authorizeRequests().antMatchers("/signup").permitAll().
-		antMatchers("/logout").
-		hasAnyRole("ROLE_PROVIDER", "ROLE_SEEKER");
+		http.authorizeRequests().antMatchers("/signupService").permitAll().
+		antMatchers("/test").
+		hasAnyRole("ROLE_PROVIDER", "ROLE_SEEKER", "ROLE_ADMIN")
+		.and()
+		.httpBasic();
 	}
 	
 	@Bean
